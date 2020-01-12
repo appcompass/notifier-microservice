@@ -5,7 +5,7 @@ import {
   MessagePattern,
   Payload,
   Ctx,
-  RedisContext,
+  RedisContext
 } from '@nestjs/microservices';
 
 @Controller()
