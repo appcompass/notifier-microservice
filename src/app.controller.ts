@@ -1,12 +1,20 @@
-import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+
+import { Controller } from '@nestjs/common';
+import {
+  MessagePattern,
+  Payload,
+  Ctx,
+  RedisContext,
+} from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @MessagePattern('notifier.send.*')
+  sendEmail(@Payload() payload: any, @Ctx() context: RedisContext) {
+    console.log(context);
+    return this.appService.send(payload);
   }
 }
