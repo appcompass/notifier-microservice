@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { Transport } from '@nestjs/microservices';
+
 import { AppModule } from './app.module';
 import { ConfigService } from './config.service';
 
@@ -9,9 +10,10 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   app.connectMicroservice({
-    transport: Transport.REDIS,
+    transport: Transport.NATS,
     options: {
-      url: configService.get('REDIS_URL')
+      url: configService.get('NATS_URL'),
+      queue: 'notifier'
     }
   });
 

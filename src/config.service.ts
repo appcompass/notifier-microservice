@@ -7,6 +7,7 @@ export type EnvConfig = Record<string, string>;
 export interface ValidConfig {
   NODE_ENV: string;
   REDIS_URL: string;
+  NATS_URL: string;
   npm_package_name: string;
   npm_package_gitHead: string;
   npm_package_version: string;
@@ -17,6 +18,7 @@ export class ConfigService {
   private schema: Joi.ObjectSchema = Joi.object({
     NODE_ENV: Joi.string().default('local'),
     REDIS_URL: Joi.string().default('redis://localhost:6379'),
+    NATS_URL: Joi.string().default(['nats://localhost:4222']),
     npm_package_name: Joi.string(),
     npm_package_gitHead: Joi.string(),
     npm_package_version: Joi.string()
