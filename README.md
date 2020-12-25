@@ -1,14 +1,26 @@
-# AppCompass Notifier
+# AppCompass Notifier Service
 
 ## Description
 
-A microservice for the purpose of sending emails, slack notifications, sms, or any other external notification service integrations for AppCompass Services.
+AppCompass Notifier Service provides notification resources to a platform that uses this service's interface contract for use.
 
-## Installation
+## First Time Setup
 
 ```bash
+
 $ npm install
+
 ```
+
+### For Local Development
+
+```bash
+
+$ npm run generate:dotenv
+
+```
+
+Then modify the `local.env` file as needed if the default values don't work for you.
 
 ## Running the app
 
@@ -35,3 +47,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## License
+
+AppCompass Authentication Service is [MIT licensed](LICENSE).
